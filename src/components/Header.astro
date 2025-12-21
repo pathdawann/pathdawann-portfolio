@@ -7,9 +7,11 @@ import HeaderLink from './HeaderLink.astro';
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/">Inicio</HeaderLink>
+			<HeaderLink href="/about">Sobre mí</HeaderLink>
+			<HeaderLink href="/services">Servicios</HeaderLink>
+			<HeaderLink href="/portfolio">Portafolio</HeaderLink>
 			<HeaderLink href="/blog">Blog</HeaderLink>
-			<HeaderLink href="/about">About</HeaderLink>
 		</div>
 		<div class="social-links">
 			<a href="https://m.webtoo.ls/@astro" target="_blank">
@@ -43,43 +45,50 @@ import HeaderLink from './HeaderLink.astro';
 	</nav>
 </header>
 <style>
-	header {
-		margin: 0;
-		padding: 0 1em;
-		background: white;
-		box-shadow: 0 2px 8px rgba(var(--black), 5%);
-	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
+    header {
+        margin: 0;
+        padding: 0 1em;
+        /* CAMBIO 1: Fondo oscuro para igualar al Hero */
+        /* Nota: Si tu Hero usa otro tono de azul, cambia este código hexadecimal */
+        background: #0f172a; 
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Sombra un poco más oscura */
+    }
+    h2 {
+        margin: 0;
+        font-size: 1em;
+    }
 
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-	nav a {
-		padding: 1em 0.5em;
-		color: var(--black);
-		border-bottom: 4px solid transparent;
-		text-decoration: none;
-	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-	}
-	.social-links,
-	.social-links a {
-		display: flex;
-	}
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
+    h2 a,
+    h2 a.active {
+        text-decoration: none;
+        /* CAMBIO 2: El título del sitio ahora es blanco */
+        color: #ffffff; 
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    nav a {
+        padding: 1em 0.5em;
+        /* CAMBIO 3: Los enlaces ahora son blancos en lugar de var(--black) */
+        color: #ffffff; 
+        border-bottom: 4px solid transparent;
+        text-decoration: none;
+    }
+    nav a.active {
+        text-decoration: none;
+        border-bottom-color: var(--accent);
+    }
+    .social-links,
+    .social-links a {
+        display: flex;
+        /* CAMBIO 4: Aseguramos que los iconos SVG hereden el color blanco */
+        color: #ffffff; 
+    }
+    @media (max-width: 720px) {
+        .social-links {
+            display: none;
+        }
+    }
 </style>
