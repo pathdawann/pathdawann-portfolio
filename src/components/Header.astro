@@ -88,7 +88,33 @@ import HeaderLink from './HeaderLink.astro';
     }
     @media (max-width: 720px) {
         .social-links {
-            display: none;
+            display: none; /* Esto ya estaba, oculta los iconos */
+        }
+
+        /* NUEVO: Reorganizamos la barra de navegación */
+        nav {
+            flex-direction: column; /* Pone el Logo arriba y los links abajo */
+            align-items: center;    /* Centra todo */
+            padding-bottom: 1rem;   /* Espacio abajo */
+        }
+
+        h2 {
+            margin-bottom: 1rem; /* Separa el logo de los links */
+        }
+
+        .internal-links {
+            display: flex;
+            flex-wrap: wrap;       /* Permite que los links bajen ordenadamente si no caben */
+            justify-content: center; /* Centra los links */
+            gap: 0.5rem;           /* Espacio entre botones */
+            width: 100%;
+        }
+
+        nav a {
+            padding: 0.5em 0.8em;  /* Reduce un poco el relleno de los botones */
+            font-size: 0.9rem;     /* Letra un pelín más pequeña para que quepan mejor */
+            border-radius: 4px;    /* Opcional: queda bonito en mobile */
+            background-color: rgba(255,255,255, 0.1); /* Opcional: fondo sutil para distinguir botones */
         }
     }
 </style>
