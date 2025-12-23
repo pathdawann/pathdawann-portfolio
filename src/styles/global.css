@@ -1,75 +1,95 @@
 /*
   The CSS in this style tag is based off of Bear Blog's default CSS.
-  https://github.com/HermanMartinus/bearblog/blob/297026a877bc2ab2b3bdfbd6b9f7961c350917dd/templates/styles/blog/default.css
-  License MIT: https://github.com/HermanMartinus/bearblog/blob/master/LICENSE.md
+  License MIT.
+  ADAPTADO PARA PATHDAWANN (Light/Dark Mode Support)
  */
 
-/* 1. FUENTES (Conservamos la carga de fuentes original) */
+/* 1. FUENTES */
 @font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-regular.woff') format('woff');
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+    font-family: 'Atkinson';
+    src: url('/fonts/atkinson-regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
 }
 @font-face {
-	font-family: 'Atkinson';
-	src: url('/fonts/atkinson-bold.woff') format('woff');
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+    font-family: 'Atkinson';
+    src: url('/fonts/atkinson-bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
 }
 
-/* 2. VARIABLES (Aquí aplicamos la identidad PATHDAWANN - Dark Mode) */
+/* 2. SISTEMA DE COLORES (VARIABLES) */
+
+/* MODO CLARO (Por defecto) */
 :root {
-	/* Fondo y Superficies */
-	--background: #0f172a;  /* Fondo principal oscuro */
-	--surface: #1e293b;     /* Fondo para tarjetas o bloques de código */
-	
-	/* Textos */
-	--text-main: #e2e8f0;   /* Blanco humo para lectura cómoda */
-	--text-muted: #94a3b8;  /* Gris azulado para textos secundarios */
-	
-	/* Acento (Tu color de marca) */
-	--accent: #38bdf8;      /* Cian brillante */
-	--accent-dark: #0284c7; /* Cian más oscuro para hovers */
-	--accent-glow: rgba(56, 189, 248, 0.25); /* Efecto neón suave */
+    /* Fondo y Superficies */
+    --background: #ffffff;          /* Blanco puro */
+    --surface: #f1f5f9;             /* Gris muy claro para tarjetas */
+    --border: #e2e8f0;              /* Bordes sutiles */
+
+    /* Textos */
+    --text-main: #1e293b;           /* Gris oscuro (casi negro) para leer bien */
+    --text-muted: #64748b;          /* Gris medio */
+    
+    /* Acento (Azul vibrante para fondo blanco) */
+    --accent: #2563eb;              
+    --accent-dark: #1e40af;         
+    --accent-glow: rgba(37, 99, 235, 0.2); 
 }
 
-/* 3. BASE (Reseteos y Estilos Globales) */
+/* MODO OSCURO (Se activa con la clase .dark) - TUS COLORES ORIGINALES */
+html.dark {
+    --background: #0f172a;  
+    --surface: #1e293b;     
+    --border: #334155;
+
+    --text-main: #e2e8f0;   
+    --text-muted: #94a3b8;  
+    
+    --accent: #38bdf8;      
+    --accent-dark: #0284c7; 
+    --accent-glow: rgba(56, 189, 248, 0.25); 
+}
+
+/* 3. BASE */
 html {
-	background-color: var(--background);
-	color: var(--text-main);
-	font-family: 'Atkinson', sans-serif;
+    background-color: var(--background);
+    color: var(--text-main);
+    font-family: 'Atkinson', sans-serif;
+    /* Transición suave al cambiar de tema */
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 body {
-	margin: 0;
-	padding: 0;
-	text-align: left;
-	word-wrap: break-word;
-	overflow-wrap: break-word;
-	font-size: 20px;
-	line-height: 1.7;
-	min-height: 100vh;
-	display: flex;       /* Esto asegura que el footer se quede abajo */
-	flex-direction: column;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-size: 20px;
+    line-height: 1.7;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* 4. LAYOUT (Conservamos el ancho original para que no se desparrame el texto) */
+/* 4. LAYOUT */
 main {
-	width: 720px;
-	max-width: calc(100% - 2em);
-	margin: auto;
-	padding: 3em 1em;
-	flex: 1; /* Esto hace que el main ocupe el espacio disponible */
+    width: 720px;
+    max-width: calc(100% - 2em);
+    margin: auto;
+    padding: 3em 1em;
+    flex: 1; 
 }
 
-/* 5. TIPOGRAFÍA (Encabezados) */
+/* 5. TIPOGRAFÍA */
 h1, h2, h3, h4, h5, h6 {
-	margin: 0 0 0.5rem 0;
-	color: #fff; /* Títulos en blanco puro para contraste */
-	line-height: 1.2;
+    margin: 0 0 0.5rem 0;
+    /* IMPORTANTE: Usar variable, no blanco fijo */
+    color: var(--text-main); 
+    line-height: 1.2;
 }
 
 h1 { font-size: 3.052em; }
@@ -79,130 +99,133 @@ h4 { font-size: 1.563em; }
 h5 { font-size: 1.25em; }
 
 strong, b {
-	font-weight: 700;
-	color: #fff; /* Las negritas destacan en blanco */
+    font-weight: 700;
+    color: var(--text-main); /* Antes era #fff, ahora es dinámico */
 }
 
-/* 6. ENLACES (Estilo Tech con brillo) */
+/* 6. ENLACES */
 a {
-	color: var(--accent);
-	text-decoration: none;
-	transition: all 0.2s ease;
+    color: var(--accent);
+    text-decoration: none;
+    transition: all 0.2s ease;
 }
 a:hover {
-	color: var(--accent);
-	text-decoration: underline;
-	text-shadow: 0 0 8px var(--accent-glow); /* Efecto neón al pasar el mouse */
+    color: var(--accent-dark); /* Color un poco más oscuro al pasar el mouse */
+    text-decoration: underline;
+    /* El brillo solo se ve bien en modo oscuro, pero no molesta en claro */
+    text-shadow: 0 0 8px var(--accent-glow); 
 }
 
-/* 7. ELEMENTOS DE CONTENIDO (Tablas, inputs, imagenes) */
+/* 7. ELEMENTOS DE CONTENIDO */
 p {
-	margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .prose p {
-	margin-bottom: 2em;
+    margin-bottom: 2em;
 }
 
 textarea, input {
-	width: 100%;
-	font-size: 16px;
-	background: var(--surface);
-	border: 1px solid var(--text-muted);
-	color: var(--text-main);
-	padding: 8px;
-	border-radius: 4px;
+    width: 100%;
+    font-size: 16px;
+    background: var(--surface);
+    border: 1px solid var(--border); /* Usamos variable de borde */
+    color: var(--text-main);
+    padding: 8px;
+    border-radius: 4px;
 }
 
 table {
-	width: 100%;
+    width: 100%;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
-	border-radius: 8px;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 /* Botón de llamada a la acción (CTA) */
 .cta-button {
     display: inline-block;
-    background-color: #25D366; /* Color WhatsApp (o usa tu color de marca) */
-    color: white;
+    background-color: #22c55e; /* Verde un poco más moderno */
+    color: white !important; /* El texto del botón siempre blanco */
     padding: 0.8rem 1.5rem;
-    border-radius: 50px; /* Bordes redondeados modernos */
+    border-radius: 50px;
     text-decoration: none;
     font-weight: bold;
     margin-top: 1rem;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .cta-button:hover {
-	color: white;
-    transform: scale(1.05); /* Efecto leve de "zoom" al pasar el mouse */
-    filter: brightness(1.1);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.4); /* Brillo verde */
 }
 
-/* 8. CÓDIGO (Adaptado a modo oscuro) */
+/* 8. CÓDIGO */
 code {
-	padding: 2px 5px;
-	background-color: var(--surface); /* Fondo oscuro para inline code */
-	color: var(--accent); /* Color destacado para código */
-	border-radius: 4px;
-	border: 1px solid rgba(255,255,255,0.1);
+    padding: 2px 5px;
+    background-color: var(--surface);
+    color: var(--accent);
+    border-radius: 4px;
+    border: 1px solid var(--border);
 }
 
 pre {
-	padding: 1.5em;
-	border-radius: 8px;
-	background-color: #0d1117 !important; /* Fondo tipo terminal muy oscuro */
-	border: 1px solid rgba(255,255,255,0.1);
-	overflow-x: auto;
+    padding: 1.5em;
+    border-radius: 8px;
+    /* Los bloques de código grandes suelen verse mejor oscuros siempre */
+    background-color: #0d1117 !important; 
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow-x: auto;
 }
 
 pre > code {
-	all: unset;
-	color: var(--text-main);
+    all: unset;
+    color: #e2e8f0; /* Texto claro dentro del bloque oscuro */
+    background-color: transparent;
+    border: none;
 }
 
 /* 9. CITAS (Blockquotes) */
 blockquote {
-	border-left: 4px solid var(--accent);
-	padding: 0 0 0 20px;
-	margin: 0;
-	font-size: 1.333em;
-	font-style: italic;
-	color: var(--text-muted);
-	background: linear-gradient(90deg, var(--surface) 0%, transparent 100%);
+    border-left: 4px solid var(--accent);
+    padding: 0 0 0 20px;
+    margin: 0;
+    font-size: 1.333em;
+    font-style: italic;
+    color: var(--text-muted);
+    background: linear-gradient(90deg, var(--surface) 0%, transparent 100%);
 }
 
 hr {
-	border: none;
-	border-top: 1px solid var(--text-muted);
-	opacity: 0.3;
+    border: none;
+    border-top: 1px solid var(--border);
+    opacity: 0.6;
 }
 
-/* 10. RESPONSIVE Y UTILIDADES (No tocar, son esenciales) */
+/* 10. RESPONSIVE Y UTILIDADES */
 @media (max-width: 720px) {
-	body {
-		font-size: 18px;
-	}
-	main {
-		padding: 1em;
-	}
+    body {
+        font-size: 18px;
+    }
+    main {
+        padding: 1em;
+    }
 }
 
-/* Clase para accesibilidad (Screen Readers) - ¡MUY IMPORTANTE DEJARLA! */
 .sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	clip: rect(1px 1px 1px 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	white-space: nowrap;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute !important;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    white-space: nowrap;
 }

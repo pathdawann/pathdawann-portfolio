@@ -1,0 +1,250 @@
+---
+// YA NO IMPORTAMOS LAYOUT AQUÍ
+---
+
+<section id="servicios" class="services-container">
+    <div class="services-header">
+        <h1>Invierte en tu Presencia Digital</h1>
+        <p>No vendo solo código. Vendo herramientas digitales que trabajan por tu negocio las 24 horas.</p>
+    </div>
+
+    <div class="pricing-grid">
+        <div class="pricing-card">
+            <div class="card-header">
+                <h3>Landing Page</h3>
+                <p class="subtitle">Ideal para eventos o promociones</p>
+                <div class="price">Desde $XX</div>
+            </div>
+            <ul class="features">
+                <li>✅ Diseño en <strong>una sola página</strong> (One-Page)</li>
+                <li>✅ Secciones: Inicio, Beneficios, Sobre mí</li>
+                <li>✅ Formulario de Contacto / Botón WhatsApp</li>
+                <li>✅ Carga ultrarrápida (Optimizado)</li>
+                <li>✅ Adaptable a Móviles (Responsive)</li>
+            </ul>
+            <a href="https://wa.me/584248221246?text=Hola%20Pathdawann%2C%20me%20interesa%20el%20paquete%20Landing%20Page" target="_blank" class="cta-button outline">
+                Solicitar Info
+            </a>
+        </div>
+
+        <div class="pricing-card popular">
+            <div class="badge-popular">MÁS VENDIDO</div>
+            <div class="card-header">
+                <h3>Sitio Profesional</h3>
+                <p class="subtitle">Para marcas personales y negocios</p>
+                <div class="price">Desde $XX</div>
+            </div>
+            <ul class="features">
+                <li>✅ Hasta <strong>5 Páginas Internas</strong></li>
+                <li>✅ Inicio + Servicios + Portafolio + Contacto</li>
+                <li>✅ Estrategia básica de textos (Copywriting)</li>
+                <li>✅ Galería de imágenes / Proyectos</li>
+                <li>✅ SEO Básico para Google</li>
+                <li>✅ Enlace a Redes Sociales</li>
+            </ul>
+            <a href="https://wa.me/584248221246?text=Hola%20Pathdawann%2C%20me%20interesa%20el%20Sitio%20Profesional" target="_blank" class="cta-button primary">
+                Empezar Proyecto
+            </a>
+        </div>
+
+        <div class="pricing-card">
+            <div class="card-header">
+                <h3>A la Medida</h3>
+                <p class="subtitle">Proyectos especiales</p>
+                <div class="price">Cotizar</div>
+            </div>
+            <ul class="features">
+                <li>✅ Desarrollo de funcionalidades complejas</li>
+                <li>✅ Integración con APIs o bases de datos</li>
+                <li>✅ Mantenimiento web mensual</li>
+                <li>✅ Rediseño de sitios existentes</li>
+                <li>✅ Asesoría técnica completa</li>
+            </ul>
+            <a href="https://wa.me/584248221246?text=Hola%20Pathdawann%2C%20necesito%20una%20cotizaci%C3%B3n%20a%20la%20medida" target="_blank" class="cta-button outline">
+                Hablemos
+            </a>
+        </div>
+    </div>
+
+    <div class="process-section">
+        <h2>¿Cómo trabajamos?</h2>
+        <div class="steps">
+            <div class="step">
+                <span class="step-number">1</span>
+                <h4>Discovery</h4>
+                <p>Hablamos de tus objetivos y definimos qué necesitas realmente.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <h4>Desarrollo</h4>
+                <p>Diseño y programo tu web manteniéndote informado del avance.</p>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <h4>Lanzamiento</h4>
+                <p>Publicamos tu web y te enseño a usarla.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* He quitado los estilos globales que rompían el layout principal (:global(main)...) */
+    
+    .services-container {
+        padding: 4rem 1rem;
+    }
+
+    .services-header {
+        text-align: center;
+        margin-bottom: 3rem;
+        padding: 0 1rem;
+    }
+
+    /* GRID DE PRECIOS */
+    .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 4rem;
+    }
+
+    /* TARJETA DE PRECIO */
+    .pricing-card {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        transition: transform 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+    }
+
+    /* ESTILOS PARA LA TARJETA DESTACADA (Popular) */
+    .pricing-card.popular {
+        border: 2px solid #2563eb;
+        background: #f8fafc;
+        transform: scale(1.02);
+    }
+
+    .badge-popular {
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #2563eb;
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    /* TEXTOS INTERNOS */
+    .card-header {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        border-bottom: 1px solid #eee;
+        padding-bottom: 1rem;
+    }
+
+    .card-header h3 {
+        margin: 0;
+        color: #1e293b;
+        font-size: 1.5rem;
+    }
+
+    .subtitle {
+        color: #64748b;
+        font-size: 0.9rem;
+        margin: 0.5rem 0;
+    }
+
+    .price {
+        font-size: 2rem;
+        font-weight: 800;
+        color: #0f172a;
+        margin-top: 1rem;
+    }
+
+    /* LISTA DE CARACTERÍSTICAS */
+    .features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem 0;
+        flex-grow: 1; 
+    }
+
+    .features li {
+        margin-bottom: 0.8rem;
+        color: #334155;
+        font-size: 0.95rem;
+    }
+
+    /* BOTONES */
+    .cta-button {
+        display: block;
+        text-align: center;
+        padding: 0.8rem;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: all 0.2s;
+    }
+
+    .cta-button.primary {
+        background: #2563eb;
+        color: white;
+    }
+    
+    .cta-button.outline {
+        border: 2px solid #2563eb;
+        color: #2563eb;
+        background: transparent;
+    }
+
+    .cta-button:hover {
+        opacity: 0.9;
+        transform: scale(1.02);
+    }
+
+    /* SECCIÓN DE PROCESO */
+    .process-section {
+        margin-top: 3rem;
+        text-align: center;
+    }
+    
+    .steps {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+    }
+
+    .step {
+        flex: 1;
+        min-width: 200px;
+        max-width: 300px;
+    }
+
+    .step-number {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background: #2563eb;
+        color: white;
+        border-radius: 50%;
+        line-height: 40px;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+</style>

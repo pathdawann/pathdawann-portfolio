@@ -1,50 +1,40 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Footer from '../components/Footer.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+// Importamos los componentes
+import Hero from '../components/Hero.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import AboutSection from '../components/AboutSection.astro';
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>Hola, soy Pathdawann 🚀</h1>
-			
-			<p>
-				Transformo tus ideas en sitios web que conectan y venden.
-				Soy Desarrolladora Frontend y Comunicadora, lista para ayudarte a destacar en el mundo digital.
-			</p>
+<html lang="es">
+    <head>
+        <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+    <body>
+        <Header />
+        
+        <main class="main-container">
+            <Hero />
+            <ServicesSection />
+            <AboutSection />
+        </main>
 
-			<p>
-				No solo escribo código; <strong>estructuro tu mensaje</strong>. Como comunicadora y desarrolladora, 
-				entiendo que una web bonita no basta: necesita contar tu historia y vender tus servicios.
-			</p>
-
-			<p>
-				Creo sitios web a la medida —sin plantillas pesadas— pensados para posicionar 
-				tu <strong>Marca Personal</strong> o tu <strong>negocio local</strong> con una estructura clara, 
-				carga inmediata y diseño profesional.
-			</p>
-
-			<h3>¿En qué puedo ayudarte?</h3>
-			<ul>
-				<li>Diseño de Landing Pages de alta conversión.</li>
-				<li>Sitios web corporativos para profesionales.</li>
-				<li>Optimización y rediseño de webs existentes.</li>
-			</ul>
-
-			<p>
-				¿Tienes un proyecto en mente? 
-				<a href="https://wa.me/584248221246?text=Hola%20Pathdawann%2C%20vi%20tu%20web%20y%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20tus%20servicios." class="cta-button" target="_blank">
-					Escríbeme al WhatsApp y conversemos &rarr;
-				</a>
-			</p>
-		</main>
-		<Footer />
-	</body>
+        <Footer />
+    </body>
 </html>
+
+<style>
+    /* Este estilo reemplaza lo que tenías antes en cada componente */
+    .main-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+        box-sizing: border-box;
+    }
+</style>
