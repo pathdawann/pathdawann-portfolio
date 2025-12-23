@@ -28,8 +28,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                 width: 100%;
                 max-width: 1000px; /* Limitamos el ancho para que no sea gigante */
                 margin: 0 auto 2rem auto;
-                padding: 0rem;
-                background-origin: padding-box;
+                padding: 0 0.5rem;
+                box-sizing: border-box;
             }
             
             .hero-image img {
