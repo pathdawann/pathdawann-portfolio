@@ -13,75 +13,107 @@ const posts = (await getCollection('blog')).sort(
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 		<style>
+			/* LAYOUT PRINCIPAL */
 			main {
-				width: 960px;
+				width: 100%;
+				max-width: 1200px; /* Igual que el resto de la web */
+				margin: 0 auto;
+				padding: 3rem 1.5rem;
+				box-sizing: border-box;
 			}
+
+			/* GRID DE ARTÍCULOS */
 			ul {
-				display: flex;
-				flex-wrap: wrap;
-				gap: 2rem;
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Grid moderno automático */
+				gap: 3rem;
 				list-style-type: none;
 				margin: 0;
 				padding: 0;
 			}
-			ul li {
-				width: calc(50% - 1rem);
+
+			li {
+				transition: transform 0.2s ease;
 			}
-			ul li * {
-				text-decoration: none;
-				transition: 0.2s ease;
-			}
-			ul li:first-child {
-				width: 100%;
-				margin-bottom: 1rem;
+
+			/* EL PRIMER ARTÍCULO DESTACADO (Hero Post) */
+			li:first-child {
+				grid-column: 1 / -1; /* Ocupa todo el ancho */
+				margin-bottom: 2rem;
 				text-align: center;
 			}
-			ul li:first-child img {
+
+			li:first-child img {
 				width: 100%;
+				max-height: 500px; /* Evita que sea demasiado alta */
+				object-fit: cover;
 			}
-			ul li:first-child .title {
-				font-size: 2.369rem;
+
+			li:first-child .title {
+				font-size: 2.5rem;
+				margin-top: 1.5rem;
 			}
-			ul li img {
-				margin-bottom: 0.5rem;
-				border-radius: 12px;
+
+			/* ESTILOS DE IMAGEN */
+			li img {
+				margin-bottom: 1rem;
+				border-radius: 16px;
+				width: 100%;
+				aspect-ratio: 16/9; /* Mantiene proporción rectangular */
+				object-fit: cover;
+				transition: box-shadow 0.3s ease, transform 0.3s ease;
+				border: 1px solid var(--border); /* Borde sutil */
 			}
-			ul li a {
+
+			/* ENLACES */
+			li a {
 				display: block;
+				text-decoration: none;
 			}
+
+			/* TEXTOS */
 			.title {
-				margin: 0;
-				color: rgb(var(--black));
-				line-height: 1;
+				margin: 0 0 0.5rem 0;
+				color: var(--text-main); /* Variable correcta */
+				line-height: 1.2;
+				font-size: 1.5rem;
+				font-weight: 700;
+				transition: color 0.2s ease;
 			}
+
 			.date {
 				margin: 0;
-				color: rgb(var(--gray));
+				color: var(--text-muted); /* Variable correcta */
+				font-size: 0.95rem;
 			}
-			ul li a:hover h4,
-			ul li a:hover .date {
-				color: rgb(var(--accent));
+
+			/* EFECTOS HOVER */
+			li a:hover .title {
+				color: var(--accent); /* Azul al pasar el mouse */
 			}
-			ul a:hover img {
-				box-shadow: var(--box-shadow);
+
+			li a:hover img {
+				box-shadow: 0 10px 20px rgba(0,0,0,0.15); /* Sombra suave */
+				transform: translateY(-5px); /* Pequeño salto */
 			}
+
+			/* RESPONSIVE */
 			@media (max-width: 720px) {
 				ul {
-					gap: 0.5em;
+					grid-template-columns: 1fr; /* Una sola columna en móvil */
+					gap: 2rem;
 				}
-				ul li {
-					width: 100%;
-					text-align: center;
+				
+				li:first-child {
+					margin-bottom: 1rem;
 				}
-				ul li:first-child {
-					margin-bottom: 0;
-				}
-				ul li:first-child .title {
-					font-size: 1.563em;
+				
+				li:first-child .title {
+					font-size: 1.8rem;
 				}
 			}
 		</style>
@@ -95,9 +127,8 @@ const posts = (await getCollection('blog')).sort(
 						posts.map((post) => (
 							<li>
 								<a href={`/blog/${post.id}/`}>
-									{post.data.heroImage && (
-										<Image width={720} height={360} src={post.data.heroImage} alt="" />
-									)}
+									{/* Usamos quality={'mid'} para optimizar carga */}
+									<Image width={720} height={360} src={post.data.heroImage || '/blog-placeholder-1.jpg'} alt="" />
 									<h4 class="title">{post.data.title}</h4>
 									<p class="date">
 										<FormattedDate date={post.data.pubDate} />

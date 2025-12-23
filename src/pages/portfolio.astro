@@ -19,15 +19,22 @@ import Layout from '../layouts/BlogPost.astro';
                 <img src="/images/proyectoUno.webp" alt="Elemental Race Landing Page" />
             </div>
             <div class="card-content">
-                <h3>Elemental Race</h3>
-                <span class="badge">Landing Page</span>
-                <p>Landing page para evento deportivo con banners, sliders, video y llamadas a la acción (CTA) optimizadas.</p>
-                <div class="tech-stack">
-                    <span>HTML</span> | <span>CSS</span> | <span>JS</span> | <span>Responsive</span>
+                <div class="card-top">
+                    <h3>Elemental Race</h3>
+                    <span class="badge">Landing Page</span>
                 </div>
+                <p>Landing page para evento deportivo con banners, sliders, video y llamadas a la acción (CTA) optimizadas para conversión.</p>
+                
+                <div class="tech-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>JS</span>
+                    <span>Responsive</span>
+                </div>
+                
                 <div class="card-links">
-                    <a href="https://elementalrace.netlify.app" target="_blank" class="link-demo">Ver Demo</a>
-                    <a href="https://github.com/patriciamagodev/elementalRaceProject" target="_blank" class="link-code">Código</a>
+                    <a href="https://elementalrace.netlify.app" target="_blank" class="link-btn primary">Ver Demo</a>
+                    <a href="https://github.com/patriciamagodev/elementalRaceProject" target="_blank" class="link-btn outline">Código</a>
                 </div>
             </div>
         </article>
@@ -37,15 +44,21 @@ import Layout from '../layouts/BlogPost.astro';
                 <img src="/images/proyectoDos.webp" alt="Website Blog Setup" />
             </div>
             <div class="card-content">
-                <h3>Website Blog</h3>
-                <span class="badge">Website / Blog</span>
-                <p>Blog personal con secciones estructuradas: sobre mí, noticias, posts y formulario de contacto.</p>
-                <div class="tech-stack">
-                    <span>HTML</span> | <span>CSS</span> | <span>Responsive</span>
+                <div class="card-top">
+                    <h3>Website Blog</h3>
+                    <span class="badge">Website / Blog</span>
                 </div>
+                <p>Blog personal con secciones estructuradas: sobre mí, noticias, posts y formulario de contacto funcional.</p>
+                
+                <div class="tech-stack">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Responsive</span>
+                </div>
+                
                 <div class="card-links">
-                    <a href="https://pmdevmaquetacioncss.netlify.app/" target="_blank" class="link-demo">Ver Demo</a>
-                    <a href="https://github.com/patriciamagodev/practicaMaquetacionCSS" target="_blank" class="link-code">Código</a>
+                    <a href="https://pmdevmaquetacioncss.netlify.app/" target="_blank" class="link-btn primary">Ver Demo</a>
+                    <a href="https://github.com/patriciamagodev/practicaMaquetacionCSS" target="_blank" class="link-btn outline">Código</a>
                 </div>
             </div>
         </article>
@@ -55,14 +68,19 @@ import Layout from '../layouts/BlogPost.astro';
                 <img src="/images/proyectoTres.webp" alt="E-Book HTML Cover" />
             </div>
             <div class="card-content">
-                <h3>E-Book: HTML Básico</h3>
-                <span class="badge">Recurso Educativo</span>
-                <p>Guía práctica "Cosas que debemos saber sobre HTML" con ejemplos claros para principiantes.</p>
-                <div class="tech-stack">
-                    <span>Canva</span> | <span>MDN Docs</span>
+                <div class="card-top">
+                    <h3>E-Book: HTML Básico</h3>
+                    <span class="badge highlight">Recurso Educativo</span>
                 </div>
+                <p>Guía práctica "Cosas que debemos saber sobre HTML" con ejemplos claros para principiantes.</p>
+                
+                <div class="tech-stack">
+                    <span>Canva</span>
+                    <span>MDN Docs</span>
+                </div>
+                
                 <div class="card-links">
-                    <a href="https://cutt.ly/0rulucjy" target="_blank" class="link-download">Descargar PDF</a>
+                    <a href="https://cutt.ly/0rulucjy" target="_blank" class="link-btn primary full-width">Descargar PDF</a>
                 </div>
             </div>
         </article>
@@ -71,128 +89,192 @@ import Layout from '../layouts/BlogPost.astro';
 </Layout>
 
 <style>
-    /* Estilos generales del contenedor */
+    /* CABECERA */
     .portfolio-header {
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
+        padding-top: 2rem;
+    }
+    
+    .portfolio-header h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: var(--text-main);
     }
 
-    /* GRID: Esto hace que se vean 3 columnas en PC y 1 en Móvil */
+    .portfolio-header p {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    /* GRID */
     .portfolio-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        padding-bottom: 3rem;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2.5rem;
+        padding-bottom: 4rem;
     }
 
-    /* TARJETAS (Cards) */
+    /* TARJETAS */
     .card {
-        background-color: #0f172a; /* Azul oscuro profundo */
-        border: 1px solid #1e293b;
-        border-radius: 12px;
+        background-color: var(--surface); /* Dinámico: blanco o negro */
+        border: 1px solid var(--border);
+        border-radius: 16px;
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         display: flex;
         flex-direction: column;
+        height: 100%; /* Para que todas tengan la misma altura */
     }
 
     .card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        border-color: #3b82f6; /* Borde azul al pasar el mouse */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-color: var(--accent);
     }
 
-    /* IMAGEN DE LA TARJETA */
+    /* IMAGEN */
+    .card-image {
+        width: 100%;
+        height: 220px;
+        overflow: hidden;
+        border-bottom: 1px solid var(--border);
+    }
+    
     .card-image img {
         width: 100%;
-        height: 200px;
-        object-fit: cover; /* Recorta la imagen para que no se deforme */
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
     }
 
-    /* CONTENIDO DE LA TARJETA */
+    .card:hover .card-image img {
+        transform: scale(1.05); /* Efecto zoom suave */
+    }
+
+    /* CONTENIDO */
     .card-content {
         padding: 1.5rem;
         display: flex;
         flex-direction: column;
         flex-grow: 1;
-        color: #e2e8f0; /* Texto claro */
+    }
+
+    .card-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+        gap: 1rem;
     }
 
     .card-content h3 {
-        margin: 0 0 0.5rem 0;
-        color: white;
-        font-size: 1.5rem;
+        margin: 0;
+        color: var(--text-main);
+        font-size: 1.4rem;
+        line-height: 1.2;
     }
 
     .badge {
-        display: inline-block;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #94a3b8;
-        margin-bottom: 1rem;
+        letter-spacing: 0.5px;
+        background-color: var(--background);
+        color: var(--text-muted);
+        padding: 4px 8px;
+        border-radius: 4px;
         font-weight: bold;
+        border: 1px solid var(--border);
+        white-space: nowrap;
+    }
+    
+    .badge.highlight {
+        color: var(--accent);
+        border-color: var(--accent);
     }
 
     .card-content p {
         font-size: 0.95rem;
-        color: #cbd5e1;
+        color: var(--text-muted);
         margin-bottom: 1.5rem;
         line-height: 1.6;
+        flex-grow: 1; /* Empuja los elementos de abajo */
     }
 
-    /* LISTA DE TECNOLOGÍAS */
+    /* TECNOLOGÍAS (Pills) */
     .tech-stack {
-        font-family: monospace;
-        color: #64748b;
-        font-weight: bold;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
         margin-bottom: 1.5rem;
-        margin-top: auto; /* Empuja esto hacia abajo */
     }
     
     .tech-stack span {
-        color: #93c5fd; /* Azul clarito para las tecnologías */
+        font-size: 0.8rem;
+        background-color: var(--background);
+        color: var(--text-main);
+        padding: 0.2rem 0.6rem;
+        border-radius: 50px;
+        border: 1px solid var(--border);
+        font-weight: 500;
     }
 
-    /* ENLACES Y BOTONES */
+    /* BOTONES */
     .card-links {
         display: flex;
-        gap: 1.5rem;
-        font-weight: bold;
+        gap: 1rem;
+        margin-top: auto;
     }
 
-    .card-links a {
+    .link-btn {
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px;
         text-decoration: none;
-        transition: color 0.2s;
+        font-weight: bold;
+        font-size: 0.9rem;
+        text-align: center;
+        transition: all 0.2s;
+        flex: 1; /* Botones del mismo ancho */
     }
 
-    .link-demo, .link-download {
-        color: #4ade80; /* Verde brillante (Estilo Matrix/Hacker) */
+    .link-btn.primary {
+        background-color: var(--accent);
+        color: white;
     }
     
-    .link-code {
-        color: #38bdf8; /* Azul cyan */
+    .link-btn.primary:hover {
+        background-color: var(--accent-dark);
     }
 
-    .link-demo:hover, .link-download:hover {
-        text-decoration: underline;
-        color: #22c55e;
+    .link-btn.outline {
+        background-color: transparent;
+        border: 1px solid var(--border);
+        color: var(--text-main);
     }
 
-    /* LIBERAR EL ANCHO Y CENTRAR (Para que quepan las 3 cards) */
+    .link-btn.outline:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+    
+    .full-width {
+        width: 100%;
+    }
+
+    /* AJUSTES GLOBALES PARA ANCHO COMPLETO */
     :global(main), :global(.prose) {
         width: 100% !important;
         max-width: 1200px !important;
         margin-left: auto !important;
         margin-right: auto !important;
-        /* NUEVO: Agregamos padding lateral para que no pegue con el borde del celular */
         padding-left: 1.5rem !important;
         padding-right: 1.5rem !important;
-        /* Asegura que el padding no sume al ancho total */
-        box-sizing: border-box !important; 
+        box-sizing: border-box !important;
     }
 
-    /* OCULTAR FECHA Y TÍTULO AUTOMÁTICO (Limpieza visual) */
+    /* LIMPIEZA VISUAL */
     :global(.prose .title), 
     :global(.prose .date),
     :global(main > article > .hero-image + div > .date),
@@ -200,4 +282,14 @@ import Layout from '../layouts/BlogPost.astro';
         display: none !important;
     }
 
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .portfolio-header h1 {
+            font-size: 2.5rem;
+        }
+        .card-top {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
 </style>

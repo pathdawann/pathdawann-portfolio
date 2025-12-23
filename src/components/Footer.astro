@@ -32,13 +32,13 @@ const today = new Date();
 
 <style>
     footer {
-        /* Fondo oscuro igual que el Header */
-        background: #0f172a;
-        color: #94a3b8; /* Texto gris claro, no blanco puro para descansar la vista */
-        padding: 3rem 1rem;
+        /* USAMOS LAS VARIABLES NUEVAS */
+        background: var(--surface); /* Se adapta (gris claro en light, oscuro en dark) */
+        color: var(--text-muted);   /* Texto gris legible */
+        padding: 4rem 1rem;
         text-align: center;
-        margin-top: 4rem; /* Separación del contenido de arriba */
-        border-top: 1px solid #1e293b; /* Línea sutil arriba */
+        margin-top: 0; /* Ya le dimos margen en el CallToAction, así que aquí lo quitamos */
+        border-top: 1px solid var(--border); /* Línea sutil */
     }
 
     .footer-content {
@@ -46,11 +46,11 @@ const today = new Date();
     }
 
     .footer-content strong {
-        color: #fff; /* Tu nombre destaca en blanco */
+        color: var(--text-main); /* El nombre destaca con el color principal */
     }
 
     .tagline {
-        font-size: 0.85rem;
+        font-size: 0.9rem;
         margin-top: 0.5rem;
         opacity: 0.8;
     }
@@ -59,17 +59,17 @@ const today = new Date();
         display: flex;
         justify-content: center;
         gap: 1.5rem;
-        margin-top: 1rem;
+        margin-top: 1.5rem;
     }
 
     .social-links a {
         text-decoration: none;
-        color: #94a3b8;
+        color: var(--text-muted); /* Iconos en gris por defecto */
         transition: color 0.2s, transform 0.2s;
     }
 
     .social-links a:hover {
-        color: #fff; /* Al pasar el mouse se pone blanco brillante */
-        transform: translateY(-3px); /* Efecto de "flotar" */
+        color: var(--accent); /* Al pasar el mouse se ponen AZULES (tu color de marca) */
+        transform: translateY(-3px);
     }
 </style>
