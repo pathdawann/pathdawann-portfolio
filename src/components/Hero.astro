@@ -1,45 +1,214 @@
 ---
 // src/components/Hero.astro
 ---
-<section class="hero-section">
-    <h1>Hola, soy Pathdawann 🚀</h1>
-    
-    <p>
-        Transformo tus ideas en sitios web que conectan y venden.
-        Soy Desarrolladora Frontend y Comunicadora, lista para ayudarte a destacar en el mundo digital.
-    </p>
 
-    <p>
-        No solo escribo código; <strong>estructuro tu mensaje</strong>. Como comunicadora y desarrolladora, 
-        entiendo que una web bonita no basta: necesita contar tu historia y vender tus servicios.
-    </p>
+<section class="hero-container">
+    <div class="hero-content">
+        <span class="badge">Desarrolladora Frontend & Comunicadora</span>
+        
+        <h1 class="hero-title">
+            Transformo tus ideas en <span class="text-gradient">Sitios Web</span> que venden.
+        </h1>
 
-    <p>
-        Creo sitios web a la medida —sin plantillas pesadas— pensados para posicionar 
-        tu <strong>Marca Personal</strong> o tu <strong>negocio local</strong> con una estructura clara, 
-        carga inmediata y diseño profesional.
-    </p>
+        <p class="hero-subtitle">
+            No basta con una web bonita. Estructuro tu mensaje y diseño estrategias digitales para posicionar tu <strong>Marca Personal</strong> o negocio local.
+        </p>
 
-    <h3>¿En qué puedo ayudarte?</h3>
-    <ul>
-        <li>Diseño de Landing Pages de alta conversión.</li>
-        <li>Sitios web corporativos para profesionales.</li>
-        <li>Optimización y rediseño de webs existentes.</li>
-    </ul>
+        <div class="cta-group">
+            <a href="https://wa.me/584248221246" target="_blank" class="btn btn-primary">
+                Hablemos por WhatsApp &rarr;
+            </a>
+            <a href="/#servicios" class="btn btn-secondary">
+                Ver mis Servicios
+            </a>
+        </div>
+        
+        <div class="quick-stats">
+            <div class="stat-item">
+                <span class="stat-number">+3</span>
+                <span class="stat-label">Años de Exp.</span>
+            </div>
+            <div class="stat-separator"></div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <span class="stat-label">A Medida</span>
+            </div>
+        </div>
+    </div>
 
-    <div class="cta-container">
-        <a href="https://wa.me/584248221246?text=Hola%20Pathdawann..." class="cta-button" target="_blank">
-            Escríbeme al WhatsApp y conversemos &rarr;
-        </a>
+    <div class="hero-image-container">
+        <div class="image-placeholder">
+            <img src="/images/profilePicture.jpg" alt="Pathdawann Code" onerror="this.style.display='none'"/>
+        </div>
     </div>
 </section>
 
 <style>
-    /* Opcional: Un poco de espacio para que no pegue con el menú */
-    .hero-section {
-        padding: 4rem 0;
+    /* --- AQUÍ EMPIEZA LA MAGIA DEL CSS --- */
+    
+    .hero-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Dividir en 2 columnas */
+        gap: 4rem;
+        align-items: center;
+        padding: 4rem 0 6rem 0;
     }
-    .cta-container {
-        margin-top: 2rem;
+
+    /* Badge */
+    .badge {
+        display: inline-block;
+        background-color: var(--surface);
+        color: var(--accent);
+        padding: 0.5rem 1rem;
+        border-radius: 50px;
+        font-size: 0.85rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border);
+    }
+
+    /* Título */
+    .hero-title {
+        font-size: 3.5rem; 
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        font-weight: 800;
+        color: var(--text-main);
+    }
+
+    .text-gradient {
+        color: var(--accent);
+        /* Si quieres el degradado, descomenta estas líneas: */
+        /* background: linear-gradient(45deg, var(--accent), #8b5cf6);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; */
+    }
+
+    /* Subtítulo */
+    .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--text-muted);
+        margin-bottom: 2.5rem;
+        line-height: 1.6;
+    }
+
+    /* Botones */
+    .cta-group {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        padding: 0.8rem 1.8rem;
+        border-radius: 50px; /* Bordes redondos modernos */
+        font-weight: bold;
+        text-decoration: none;
+        transition: transform 0.2s, box-shadow 0.2s;
+        font-size: 1rem;
+        display: inline-block;
+    }
+
+    .btn-primary {
+        background-color: var(--accent);
+        color: white; /* Texto blanco siempre */
+        box-shadow: 0 4px 14px var(--accent-glow);
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px var(--accent-glow);
+        color: white;
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        border: 2px solid var(--border);
+        color: var(--text-main);
+    }
+
+    .btn-secondary:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+    }
+
+    /* Stats */
+    .quick-stats {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        border-top: 1px solid var(--border);
+        padding-top: 1.5rem;
+    }
+
+    .stat-number {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--text-main);
+        display: block;
+    }
+
+    .stat-label {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+    }
+
+    .stat-separator {
+        width: 1px;
+        height: 40px;
+        background-color: var(--border);
+    }
+
+    /* Imagen */
+    .hero-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-placeholder {
+        width: 100%;
+        max-width: 400px; /* Limita el ancho de la imagen */
+        aspect-ratio: 1 / 1;
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: 20px 20px 0px var(--accent-glow); /* Sombra decorativa */
+    }
+    
+    .image-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* RESPONSIVE (MÓVIL) */
+    @media (max-width: 768px) {
+        .hero-container {
+            grid-template-columns: 1fr; /* Una columna */
+            text-align: center;
+            gap: 3rem;
+            padding-top: 2rem;
+        }
+
+        .hero-image-container {
+            order: -1; /* Pone la imagen primero en celular */
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+        }
+        
+        .cta-group {
+            justify-content: center;
+        }
+
+        .quick-stats {
+            justify-content: center;
+        }
     }
 </style>

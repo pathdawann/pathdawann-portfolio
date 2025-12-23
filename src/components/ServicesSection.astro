@@ -1,14 +1,15 @@
 ---
-// YA NO IMPORTAMOS LAYOUT AQUÍ
+// src/components/ServicesSection.astro
 ---
 
 <section id="servicios" class="services-container">
     <div class="services-header">
-        <h1>Invierte en tu Presencia Digital</h1>
+        <h2>Invierte en tu <span class="highlight">Presencia Digital</span></h2>
         <p>No vendo solo código. Vendo herramientas digitales que trabajan por tu negocio las 24 horas.</p>
     </div>
 
     <div class="pricing-grid">
+        
         <div class="pricing-card">
             <div class="card-header">
                 <h3>Landing Page</h3>
@@ -16,11 +17,11 @@
                 <div class="price">Desde $XX</div>
             </div>
             <ul class="features">
-                <li>✅ Diseño en <strong>una sola página</strong> (One-Page)</li>
+                <li>✅ Diseño <strong>One-Page</strong> de alto impacto</li>
                 <li>✅ Secciones: Inicio, Beneficios, Sobre mí</li>
-                <li>✅ Formulario de Contacto / Botón WhatsApp</li>
-                <li>✅ Carga ultrarrápida (Optimizado)</li>
-                <li>✅ Adaptable a Móviles (Responsive)</li>
+                <li>✅ Botón directo a WhatsApp</li>
+                <li>✅ Carga ultrarrápida (Velocidad = Ventas)</li>
+                <li>✅ 100% Adaptable a Celulares</li>
             </ul>
             <a href="https://wa.me/584248221246?text=Hola%20Pathdawann%2C%20me%20interesa%20el%20paquete%20Landing%20Page" target="_blank" class="cta-button outline">
                 Solicitar Info
@@ -35,12 +36,11 @@
                 <div class="price">Desde $XX</div>
             </div>
             <ul class="features">
-                <li>✅ Hasta <strong>5 Páginas Internas</strong></li>
+                <li>✅ Hasta <strong>5 Secciones Internas</strong></li>
                 <li>✅ Inicio + Servicios + Portafolio + Contacto</li>
-                <li>✅ Estrategia básica de textos (Copywriting)</li>
-                <li>✅ Galería de imágenes / Proyectos</li>
-                <li>✅ SEO Básico para Google</li>
-                <li>✅ Enlace a Redes Sociales</li>
+                <li>✅ Estrategia de Textos (Copywriting básico)</li>
+                <li>✅ Galería de Proyectos</li>
+                <li>✅ SEO Básico para aparecer en Google</li>
             </ul>
             <a href="https://wa.me/584248221246?text=Hola%20Pathdawann%2C%20me%20interesa%20el%20Sitio%20Profesional" target="_blank" class="cta-button primary">
                 Empezar Proyecto
@@ -54,8 +54,8 @@
                 <div class="price">Cotizar</div>
             </div>
             <ul class="features">
-                <li>✅ Desarrollo de funcionalidades complejas</li>
-                <li>✅ Integración con APIs o bases de datos</li>
+                <li>✅ Funcionalidades complejas (Blogs, Catálogos)</li>
+                <li>✅ Integración con APIs externas</li>
                 <li>✅ Mantenimiento web mensual</li>
                 <li>✅ Rediseño de sitios existentes</li>
                 <li>✅ Asesoría técnica completa</li>
@@ -64,10 +64,11 @@
                 Hablemos
             </a>
         </div>
+
     </div>
 
     <div class="process-section">
-        <h2>¿Cómo trabajamos?</h2>
+        <h3>¿Cómo trabajamos?</h3>
         <div class="steps">
             <div class="step">
                 <span class="step-number">1</span>
@@ -82,96 +83,119 @@
             <div class="step">
                 <span class="step-number">3</span>
                 <h4>Lanzamiento</h4>
-                <p>Publicamos tu web y te enseño a usarla.</p>
+                <p>Publicamos tu web y te enseño a usarla para que tengas el control.</p>
             </div>
         </div>
     </div>
 </section>
 
 <style>
-    /* He quitado los estilos globales que rompían el layout principal (:global(main)...) */
-    
     .services-container {
-        padding: 4rem 1rem;
+        padding: 4rem 0;
     }
 
     .services-header {
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
         padding: 0 1rem;
+    }
+
+    .services-header h2 {
+        font-size: 2.5rem;
+        color: var(--text-main);
+        margin-bottom: 1rem;
+    }
+    
+    .services-header p {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .highlight {
+        color: var(--accent);
     }
 
     /* GRID DE PRECIOS */
     .pricing-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: 2rem;
-        margin-bottom: 4rem;
+        margin-bottom: 5rem;
     }
 
     /* TARJETA DE PRECIO */
     .pricing-card {
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        padding: 2rem;
+        background: var(--surface); /* Fondo dinámico */
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
         display: flex;
         flex-direction: column;
         position: relative;
-        transition: transform 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .pricing-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border-color: var(--accent); /* Borde azul al pasar el mouse */
     }
 
-    /* ESTILOS PARA LA TARJETA DESTACADA (Popular) */
+    /* TARJETA POPULAR */
     .pricing-card.popular {
-        border: 2px solid #2563eb;
-        background: #f8fafc;
-        transform: scale(1.02);
+        border: 2px solid var(--accent);
+        background: var(--surface);
+        transform: scale(1.05); /* Un poco más grande siempre */
+        z-index: 10;
+        box-shadow: 0 10px 40px -10px rgba(37, 99, 235, 0.15); /* Sombra azulada suave */
+    }
+
+    .pricing-card.popular:hover {
+        transform: scale(1.05) translateY(-5px);
     }
 
     .badge-popular {
         position: absolute;
-        top: -12px;
+        top: -15px;
         left: 50%;
         transform: translateX(-50%);
-        background: #2563eb;
+        background: var(--accent);
         color: white;
-        padding: 4px 12px;
-        border-radius: 20px;
+        padding: 6px 16px;
+        border-radius: 50px;
         font-size: 0.8rem;
-        font-weight: bold;
+        font-weight: 800;
         text-transform: uppercase;
+        letter-spacing: 1px;
     }
 
     /* TEXTOS INTERNOS */
     .card-header {
         text-align: center;
-        margin-bottom: 1.5rem;
-        border-bottom: 1px solid #eee;
-        padding-bottom: 1rem;
+        margin-bottom: 2rem;
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 1.5rem;
     }
 
     .card-header h3 {
         margin: 0;
-        color: #1e293b;
+        color: var(--text-main);
         font-size: 1.5rem;
+        font-weight: 800;
     }
 
     .subtitle {
-        color: #64748b;
-        font-size: 0.9rem;
+        color: var(--text-muted);
+        font-size: 0.95rem;
         margin: 0.5rem 0;
     }
 
     .price {
-        font-size: 2rem;
+        font-size: 2.2rem;
         font-weight: 800;
-        color: #0f172a;
+        color: var(--text-main);
         margin-top: 1rem;
     }
 
@@ -184,67 +208,112 @@
     }
 
     .features li {
-        margin-bottom: 0.8rem;
-        color: #334155;
-        font-size: 0.95rem;
+        margin-bottom: 1rem;
+        color: var(--text-main); /* Texto legible */
+        font-size: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        opacity: 0.9;
     }
 
     /* BOTONES */
     .cta-button {
         display: block;
         text-align: center;
-        padding: 0.8rem;
-        border-radius: 8px;
+        padding: 1rem;
+        border-radius: 12px;
         text-decoration: none;
         font-weight: bold;
         transition: all 0.2s;
+        font-size: 1rem;
     }
 
     .cta-button.primary {
-        background: #2563eb;
+        background: var(--accent);
         color: white;
+        box-shadow: 0 4px 15px var(--accent-glow);
+    }
+
+    .cta-button.primary:hover {
+        background: var(--accent-dark);
+        transform: translateY(-2px);
     }
     
     .cta-button.outline {
-        border: 2px solid #2563eb;
-        color: #2563eb;
+        border: 2px solid var(--border);
+        color: var(--text-main);
         background: transparent;
     }
 
-    .cta-button:hover {
-        opacity: 0.9;
-        transform: scale(1.02);
+    .cta-button.outline:hover {
+        border-color: var(--accent);
+        color: var(--accent);
     }
 
-    /* SECCIÓN DE PROCESO */
+    /* PROCESO */
     .process-section {
         margin-top: 3rem;
         text-align: center;
+        padding: 3rem;
+        background: var(--surface);
+        border-radius: 20px;
+        border: 1px solid var(--border);
     }
     
+    .process-section h3 {
+        font-size: 2rem;
+        color: var(--text-main);
+        margin-bottom: 3rem;
+    }
+
     .steps {
         display: flex;
         justify-content: center;
-        gap: 2rem;
+        gap: 3rem;
         flex-wrap: wrap;
-        margin-top: 2rem;
     }
 
     .step {
         flex: 1;
-        min-width: 200px;
-        max-width: 300px;
+        min-width: 250px;
     }
 
     .step-number {
         display: inline-block;
-        width: 40px;
-        height: 40px;
-        background: #2563eb;
+        width: 50px;
+        height: 50px;
+        background: var(--accent);
         color: white;
         border-radius: 50%;
-        line-height: 40px;
+        line-height: 50px;
         font-weight: bold;
-        margin-bottom: 1rem;
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 4px 10px var(--accent-glow);
+    }
+
+    .step h4 {
+        font-size: 1.3rem;
+        color: var(--text-main);
+        margin-bottom: 0.5rem;
+    }
+
+    .step p {
+        color: var(--text-muted);
+        font-size: 1rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+        .pricing-card.popular {
+            transform: scale(1); /* Quitamos el zoom en móvil para que no se salga */
+        }
+        .services-header h2 {
+            font-size: 2rem;
+        }
+        .steps {
+            flex-direction: column;
+            gap: 2rem;
+        }
     }
 </style>

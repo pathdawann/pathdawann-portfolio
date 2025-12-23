@@ -6,8 +6,9 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 // Importamos los componentes
 import Hero from '../components/Hero.astro';
-import ServicesSection from '../components/ServicesSection.astro';
 import AboutSection from '../components/AboutSection.astro';
+import ServicesSection from '../components/ServicesSection.astro';
+import CallToAction from '../components/CallToAction.astro'; // <--- IMPORTAR AQUÍ
 ---
 
 <!doctype html>
@@ -18,23 +19,16 @@ import AboutSection from '../components/AboutSection.astro';
     <body>
         <Header />
         
-        <main class="main-container">
+        <main>
             <Hero />
-            <ServicesSection />
+            
             <AboutSection />
+            
+            <ServicesSection />
+
+            <CallToAction />
         </main>
 
         <Footer />
     </body>
 </html>
-
-<style>
-    /* Este estilo reemplaza lo que tenías antes en cada componente */
-    .main-container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 0 1.5rem;
-        box-sizing: border-box;
-    }
-</style>

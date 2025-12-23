@@ -1,5 +1,5 @@
 ---
-// SIN IMPORT DE LAYOUT
+// src/components/AboutSection.astro
 ---
 
 <section id="sobre-mi" class="about-container">
@@ -7,27 +7,34 @@
     <div class="hero-section">
         <div class="hero-text">
             <h1>Más que código, <br> <span class="highlight">Estrategia Digital</span></h1>
-            <p class="intro">
-                Hola, soy <strong>Pathdawann</strong>. Durante años trabajé creando mensajes como Comunicadora, hasta que entendí que el medio más poderoso hoy en día es la web.
-            </p>
-            <p>
-                Ahora combino mi experiencia en comunicación con mis habilidades de <strong>Desarrollo Frontend</strong> para crear sitios que no solo funcionan bien, sino que cuentan la historia correcta.
-            </p>
+            
+            <div class="text-content">
+                <p>
+                    Hola, soy <strong>Pathdawann</strong>. Durante años trabajé creando mensajes como Comunicadora, hasta que entendí que el medio más poderoso hoy en día es la web.
+                </p>
+                <p>
+                    Ahora combino mi experiencia en comunicación con mis habilidades de <strong>Desarrollo Frontend</strong> para crear sitios que no solo funcionan bien, sino que cuentan la historia correcta.
+                </p>
+            </div>
         </div>
+        
         <div class="hero-image">
             <img src="/images/profilePicture.jpg" alt="Pathdawann - Desarrolladora Frontend" />
         </div>
     </div>
 
     <div class="story-section">
-        <h2>Mi Filosofía: El "Efecto Padawan" 🚀</h2>
+        <div class="story-header">
+            <h2>Mi Filosofía: El "Efecto Padawan" 🚀</h2>
+        </div>
+
         <div class="content-grid">
             <div class="text-block">
                 <p>
                     Mi nombre de marca, <em>Pathdawann</em>, viene del concepto de "aprendiz eterno". En la tecnología, quien deja de aprender, desaparece.
                 </p>
                 <p>
-                    Me especializo en trabajar con <strong>profesionales y emprendedores</strong> porque entiendo el reto de hacerse visible. He organizado eventos (como la <em>Elemental Race</em>) y gestionado negocios locales, así que sé que una web no es un lujo, es una herramienta de ventas.
+                    Me especializo en trabajar con <strong>profesionales y emprendedores</strong> porque entiendo el reto de hacerse visible. He organizado eventos y gestionado negocios locales, así que sé que una web no es un lujo, es una herramienta de ventas.
                 </p>
             </div>
             
@@ -45,106 +52,98 @@
         </div>
     </div>
 
-    <div class="cta-section">
-        <p>¿Listo para trabajar con alguien que entiende tu negocio?</p>
-        <a href="https://wa.me/584248221246" class="cta-button">Hablemos de tu proyecto</a>
-    </div>
-
 </section>
 
 <style>
-    /* Estilos limpios sin conflictos globales */
-    
+    /* --- CONFIGURACIÓN GENERAL --- */
     .about-container {
-        padding: 4rem 1rem;
+        padding: 4rem 0;
+        border-bottom: 1px solid var(--border);
     }
 
-    /* HERO SECTION (2 Columnas) */
+    /* Unificamos el tamaño y color de TODOS los párrafos para consistencia */
+    p {
+        font-size: 1.15rem; /* Un poco más grande para leer mejor */
+        line-height: 1.7;   /* Buen espacio entre líneas */
+        color: var(--text-main); /* Usamos el color principal, NO el gris claro */
+        opacity: 0.9;       /* Un toque sutil para que no sea negro absoluto */
+        margin-bottom: 1.5rem;
+    }
+
+    /* --- HERO SECTION --- */
     .hero-section {
-        display: flex;
-        align-items: center;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
         gap: 4rem;
+        align-items: center;
         margin-bottom: 5rem;
-    }
-
-    .hero-text {
-        flex: 1;
     }
 
     .hero-text h1 {
         font-size: 3rem;
-        line-height: 1.2;
-        margin-bottom: 1.5rem;
-        color: #fff; 
+        line-height: 1.1;
+        margin-bottom: 2rem;
+        color: var(--text-main);
     }
 
     .highlight {
-        color: #3b82f6;
+        color: var(--accent);
     }
 
-    .intro {
-        font-size: 1.2rem;
-        color: #e2e8f0;
-        margin-bottom: 1.5rem;
-    }
-
-    /* FOTO DE PERFIL CON ESTILO */
+    /* Imagen de perfil */
     .hero-image {
-        flex: 1;
         display: flex;
         justify-content: center;
     }
 
     .hero-image img {
-        width: 300px;
-        height: 300px;
+        width: 100%;
+        max-width: 350px;
+        aspect-ratio: 1/1;
         object-fit: cover;
         border-radius: 20px;
-        border: 4px solid #1e293b;
-        box-shadow: 20px 20px 0px #3b82f6;
+        border: 4px solid var(--surface); 
+        box-shadow: 15px 15px 0px var(--accent-glow);
         transition: transform 0.3s ease;
     }
 
     .hero-image img:hover {
         transform: translate(5px, 5px);
-        box-shadow: 15px 15px 0px #2563eb;
     }
 
-    /* STORY SECTION */
-    .story-section h2 {
+    /* --- STORY SECTION --- */
+    .story-header h2 {
         font-size: 2rem;
         margin-bottom: 2rem;
-        color: #fff;
-        border-bottom: 2px solid #1e293b;
-        padding-bottom: 1rem;
+        color: var(--text-main);
+        border-bottom: 2px solid var(--border);
+        padding-bottom: 0.5rem;
         display: inline-block;
     }
 
     .content-grid {
         display: grid;
         grid-template-columns: 1.5fr 1fr;
-        gap: 3rem;
+        gap: 4rem;
+        align-items: start; /* Alineamos al inicio para que no se estire */
     }
 
-    .text-block p {
-        font-size: 1.1rem;
-        color: #cbd5e1;
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
-    }
-
-    /* TARJETA DE SKILLS */
+    /* --- TARJETA DE SKILLS (REDISEÑADA) --- */
     .skills-card {
-        background: #0f172a;
+        background: var(--surface);
         padding: 2rem;
         border-radius: 16px;
-        border: 1px solid #1e293b;
+        /* Borde más notorio usando el color de acento pero suave */
+        border: 2px solid var(--border); 
+        box-shadow: 0 10px 30px -10px rgba(0,0,0,0.1); /* Sombra elegante */
     }
 
     .skills-card h3 {
         margin-top: 0;
         margin-bottom: 1.5rem;
-        color: #fff;
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--text-main);
     }
 
     .skills-list {
@@ -154,67 +153,47 @@
     }
 
     .skill {
-        background: #1e293b;
-        color: #93c5fd;
-        padding: 0.5rem 1rem;
-        border-radius: 50px;
-        font-size: 0.9rem;
-        font-weight: bold;
-    }
-
-    /* CTA FINAL */
-    .cta-section {
-        text-align: center;
-        margin-top: 5rem;
-        margin-bottom: 3rem;
-        padding: 3rem;
-        background: #1e293b;
-        border-radius: 16px;
-    }
-
-    .cta-section p {
-        font-size: 1.5rem;
+        /* CAMBIO: Fondo de color Acento (Azul) y texto Blanco */
+        background-color: var(--accent); 
         color: white;
-        margin-bottom: 2rem;
-        font-weight: bold;
-    }
-
-    .cta-button {
-        background: #22c55e;
-        color: white;
-        padding: 1rem 2rem;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.1rem;
-        transition: transform 0.2s;
-        display: inline-block;
+        
+        padding: 0.6rem 1.2rem;
+        border-radius: 8px; /* Un poco menos redondo, más 'tech' */
+        font-size: 0.95rem;
+        font-weight: 600;
+        transition: transform 0.2s, background-color 0.2s;
     }
     
-    .cta-button:hover {
-        transform: scale(1.05);
+    .skill:hover {
+        transform: translateY(-2px);
+        background-color: var(--accent-dark);
     }
 
-    /* RESPONSIVE (MÓVIL) */
+    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
         .hero-section {
-            flex-direction: column-reverse;
-            gap: 2rem;
+            grid-template-columns: 1fr;
             text-align: center;
+            gap: 2rem;
+        }
+
+        .hero-image {
+            order: -1; 
         }
 
         .hero-image img {
-            width: 250px;
-            height: 250px;
-        }
-
-        .hero-text h1 {
-            font-size: 2.5rem;
+            width: 280px;
+            box-shadow: 10px 10px 0px var(--accent-glow);
         }
 
         .content-grid {
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 3rem;
+        }
+        
+        /* En móvil, el texto va primero, skills abajo */
+        .skills-card {
+            order: 2; 
         }
     }
 </style>

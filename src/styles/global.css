@@ -75,13 +75,14 @@ body {
     flex-direction: column;
 }
 
-/* 4. LAYOUT */
+/* 4. LAYOUT (ACTUALIZADO PARA LANDING PAGE) */
 main {
-    width: 720px;
-    max-width: calc(100% - 2em);
+    width: 100%;              /* Ocupar todo el ancho disponible */
+    max-width: 1200px;        /* Pero no pasarse de 1200px (estándar pro) */
     margin: auto;
-    padding: 3em 1em;
+    padding: 3em 1.5em;       /* Un poco más de espacio a los lados */
     flex: 1; 
+    box-sizing: border-box;   /* Asegura que el padding no rompa el ancho */
 }
 
 /* 5. TIPOGRAFÍA */
