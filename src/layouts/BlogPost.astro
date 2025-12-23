@@ -15,70 +15,71 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
     <head>
         <BaseHead title={title} description={description} />
         <style>
-            /* Layout principal del post */
-            main {
-                width: 100%;
-                max-width: 100%;
-                margin: 0;
-                padding-bottom: 3rem; /* Espacio antes del footer */
-            }
-            
-            /* Imagen destacada */
-            .hero-image {
-                width: 100%;
-                max-width: 1000px; /* Limitamos el ancho para que no sea gigante */
-                margin: 0 auto 2rem auto;
-                padding: 0 0.5rem;
-                box-sizing: border-box;
-            }
-            
-            .hero-image img {
-                display: block;
-                width: 100%;
-                border-radius: 16px;
-                /* Nueva sombra suave */
-                box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
-            }
-            
-            /* Contenedor del texto (PROSE) - Mantenemos 720px para lectura cómoda */
-            .prose {
-                width: 720px;
-                max-width: calc(100% - 2em);
-                margin: auto;
-                padding: 1em;
-                /* CORRECCIÓN: Usamos la variable nueva de texto */
-                color: var(--text-main); 
-            }
-            
-            .title {
-                margin-bottom: 2em;
-                padding: 1em 0;
-                text-align: center;
-                line-height: 1;
-            }
-            
-            .title h1 {
-                margin: 0 0 0.5em 0;
-                font-size: 2.5rem; /* Título grande */
-            }
-            
-            .date {
-                margin-bottom: 0.5em;
-                /* CORRECCIÓN: Variable nueva */
-                color: var(--text-muted); 
-            }
-            
-            .last-updated-on {
-                font-style: italic;
-            }
+    /* Layout principal del post */
+    main {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding-bottom: 3rem;
+    }
+    
+    /* Imagen destacada - CENTRADA Y AJUSTADA */
+    .hero-image {
+        width: 100%;
+        max-width: 1000px;
+        margin: 0 auto 2rem auto;
+        padding: 0 0.5rem; /* Pequeño margen lateral */
+        box-sizing: border-box; /* Evita que se desborde */
+    }
+    
+    .hero-image img {
+        display: block;
+        width: 100%;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+    }
+    
+    /* Contenedor del texto (PROSE) */
+    .prose {
+        width: 720px;
+        max-width: calc(100% - 2em);
+        margin: auto;
+        padding: 1em;
+        color: var(--text-main); 
+    }
+    
+    .title {
+        margin-bottom: 2em;
+        padding: 1em 0;
+        text-align: center;
+        line-height: 1;
+    }
+    
+    /* TÍTULO RESPONSIVE (Aquí estaba el problema) */
+    .title h1 {
+        margin: 0 0 0.5em 0;
+        /* Usamos !important temporalmente para asegurar que sobrescriba cualquier regla vieja rebelde */
+        font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+        line-height: 1.2;
+        color: var(--text-main);
+        font-weight: 800;
+    }
+    
+    .date {
+        margin-bottom: 0.5em;
+        color: var(--text-muted); 
+    }
+    
+    .last-updated-on {
+        font-style: italic;
+    }
 
-            /* Un pequeño separador elegante */
-            hr {
-                border: 0;
-                border-top: 1px solid var(--border);
-                margin: 2rem 0;
-            }
-        </style>
+    hr {
+        border: 0;
+        border-top: 1px solid var(--border);
+        margin: 2rem 0;
+    }
+</style>
     </head>
 
     <body>
