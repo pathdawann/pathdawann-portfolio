@@ -15,10 +15,10 @@
         </p>
 
         <div class="cta-group">
-            <a href="https://wa.me/584248221246" target="_blank" class="btn btn-primary">
+            <a href="https://wa.me/584248221246" target="_blank" class="cta-button primary">
                 Hablemos por WhatsApp &rarr;
             </a>
-            <a href="/#servicios" class="btn btn-secondary">
+            <a href="/#servicios" class="cta-button secondary">
                 Ver mis Servicios
             </a>
         </div>
@@ -37,24 +37,22 @@
     </div>
 
     <div class="hero-image-container">
-        <div class="image-placeholder">
-            <img src="/images/profilePicture.jpg" alt="Pathdawann Code" onerror="this.style.display='none'"/>
+        <div class="image-wrapper">
+            <img src="/images/profilePicture.jpg" alt="Pathdawann - Desarrollo Web" />
         </div>
     </div>
 </section>
 
 <style>
-    /* --- AQUÍ EMPIEZA LA MAGIA DEL CSS --- */
-    
     .hero-container {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Dividir en 2 columnas */
+        grid-template-columns: 1fr 1fr;
         gap: 4rem;
         align-items: center;
         padding: 4rem 0 6rem 0;
     }
 
-    /* Badge */
+    /* Badge Superior */
     .badge {
         display: inline-block;
         background-color: var(--surface);
@@ -62,16 +60,16 @@
         padding: 0.5rem 1rem;
         border-radius: 50px;
         font-size: 0.85rem;
-        font-weight: bold;
+        font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
         margin-bottom: 1.5rem;
         border: 1px solid var(--border);
     }
 
-    /* Título */
+    /* Título con Degradado Activado */
     .hero-title {
-        font-size: 3.5rem; 
+        font-size: 3.5rem;
         line-height: 1.1;
         margin-bottom: 1.5rem;
         font-weight: 800;
@@ -79,22 +77,22 @@
     }
 
     .text-gradient {
-        color: var(--accent);
-        /* Si quieres el degradado, descomenta estas líneas: */
-        /* background: linear-gradient(45deg, var(--accent), #8b5cf6);
+        background: linear-gradient(45deg, var(--accent), #8b5cf6);
         -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent; */
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        color: transparent;
     }
 
-    /* Subtítulo */
     .hero-subtitle {
         font-size: 1.25rem;
         color: var(--text-muted);
         margin-bottom: 2.5rem;
         line-height: 1.6;
+        max-width: 90%;
     }
 
-    /* Botones */
+    /* Botones Unificados */
     .cta-group {
         display: flex;
         gap: 1rem;
@@ -102,9 +100,9 @@
         flex-wrap: wrap;
     }
 
-    .btn {
+    .cta-button {
         padding: 0.8rem 1.8rem;
-        border-radius: 50px; /* Bordes redondos modernos */
+        border-radius: 50px;
         font-weight: bold;
         text-decoration: none;
         transition: transform 0.2s, box-shadow 0.2s;
@@ -112,30 +110,29 @@
         display: inline-block;
     }
 
-    .btn-primary {
+    .cta-button.primary {
         background-color: var(--accent);
-        color: white; /* Texto blanco siempre */
+        color: white;
         box-shadow: 0 4px 14px var(--accent-glow);
     }
     
-    .btn-primary:hover {
+    .cta-button.primary:hover {
         transform: translateY(-2px);
         box-shadow: 0 6px 20px var(--accent-glow);
-        color: white;
     }
 
-    .btn-secondary {
+    .cta-button.secondary {
         background-color: transparent;
         border: 2px solid var(--border);
         color: var(--text-main);
     }
 
-    .btn-secondary:hover {
+    .cta-button.secondary:hover {
         border-color: var(--accent);
         color: var(--accent);
     }
 
-    /* Stats */
+    /* Estadísticas */
     .quick-stats {
         display: flex;
         align-items: center;
@@ -155,6 +152,7 @@
         font-size: 0.85rem;
         color: var(--text-muted);
         text-transform: uppercase;
+        font-weight: 600;
     }
 
     .stat-separator {
@@ -170,37 +168,42 @@
         align-items: center;
     }
 
-    .image-placeholder {
+    .image-wrapper {
         width: 100%;
-        max-width: 400px; /* Limita el ancho de la imagen */
+        max-width: 400px;
         aspect-ratio: 1 / 1;
         border-radius: 24px;
         overflow: hidden;
         border: 1px solid var(--border);
-        box-shadow: 20px 20px 0px var(--accent-glow); /* Sombra decorativa */
+        box-shadow: 20px 20px 0px var(--accent-glow);
+        background-color: var(--surface);
     }
     
-    .image-placeholder img {
+    .image-wrapper img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    /* RESPONSIVE (MÓVIL) */
+    /* Responsive */
     @media (max-width: 768px) {
         .hero-container {
-            grid-template-columns: 1fr; /* Una columna */
+            grid-template-columns: 1fr;
             text-align: center;
-            gap: 3rem;
             padding-top: 2rem;
+            gap: 3rem;
         }
 
         .hero-image-container {
-            order: -1; /* Pone la imagen primero en celular */
+            order: -1;
         }
         
         .hero-title {
             font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+            margin: 0 auto 2rem auto;
         }
         
         .cta-group {

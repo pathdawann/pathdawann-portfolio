@@ -33,11 +33,14 @@ import ThemeToggle from './ThemeToggle.astro';
     header {
         margin: 0;
         padding: 0 1.5rem;
-        background-color: var(--background);
+        background-color: var(--background); 
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        position: sticky; /* Opcional: Para que se quede fijo al bajar */
+        position: sticky;
         top: 0;
         z-index: 100;
+        /* Efecto moderno de cristal */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
     }
 
     .header-container {
@@ -52,29 +55,34 @@ import ThemeToggle from './ThemeToggle.astro';
     /* 2. ESTILOS DEL LOGO */
     h2 {
         margin: 0;
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         font-weight: 800;
-        z-index: 20; /* Para que quede sobre el menú móvil si se abre */
+        z-index: 101;
     }
     h2 a {
         text-decoration: none;
         color: var(--text-main);
+        transition: color 0.2s;
+    }
+    h2 a:hover {
+        color: var(--accent);
     }
 
-    /* 3. ESTILOS DE ESCRITORIO (POR DEFECTO) */
+    /* 3. ESTILOS DE ESCRITORIO */
     .nav-links {
         display: flex;
         align-items: center;
-        gap: 1.5rem;
+        gap: 2rem;
     }
 
-    /* Usamos :global para asegurar que estilice los componentes HeaderLink */
+    /* ESTILOS DE LOS ENLACES (Aquí es donde recuperamos los efectos) */
     .nav-links :global(a) {
         text-decoration: none;
         color: var(--text-main);
-        font-weight: 700;
+        font-weight: 600;
         font-size: 0.95rem;
-        transition: color 0.2s;
+        transition: color 0.2s ease;
+        position: relative;
     }
     
     .nav-links :global(a:hover),
@@ -82,76 +90,96 @@ import ThemeToggle from './ThemeToggle.astro';
         color: var(--accent);
     }
 
-    /* El botón hamburguesa se OCULTA en escritorio */
+    /* Línea animada al hacer hover */
+    .nav-links :global(a)::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: var(--accent);
+        transition: width 0.3s ease;
+    }
+
+    .nav-links :global(a:hover)::after,
+    .nav-links :global(a.active)::after {
+        width: 100%;
+    }
+
+    /* Botón Móvil */
     .menu-btn {
-        display: none; 
+        display: none;
         background: none;
         border: none;
         cursor: pointer;
         color: var(--text-main);
+        padding: 0;
+        z-index: 101;
     }
 
     .toggle-wrapper {
         display: flex;
         align-items: center;
         margin-left: 0.5rem;
-        padding-left: 1rem;
+        padding-left: 1.5rem;
         border-left: 1px solid var(--border);
+        height: 24px;
     }
 
-    /* 4. ESTILOS MÓVIL (MAX-WIDTH 768px) */
+    /* 4. ESTILOS MÓVIL */
     @media (max-width: 768px) {
-        .menu-btn {
-            display: block; /* Mostrar botón en móvil */
-        }
+        .menu-btn { display: block; }
 
         .nav-links {
-            display: none; /* Ocultar menú por defecto */
+            display: none;
             position: absolute;
             top: 70px;
             left: 0;
             width: 100%;
             background-color: var(--background);
             flex-direction: column;
-            padding: 1.5rem 0;
+            padding: 2rem 0;
             border-bottom: 1px solid var(--border);
             box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         }
 
-        /* Clase para mostrar el menú cuando se activa con JS */
-        .nav-links.expanded {
-            display: flex;
-        }
+        .nav-links.expanded { display: flex; }
 
         .nav-links :global(a) {
-            padding: 0.8rem 0;
-            font-size: 1.1rem;
+            padding: 1rem 0;
+            font-size: 1.2rem;
             width: 100%;
             text-align: center;
         }
+        
+        .nav-links :global(a)::after { display: none; }
 
         .toggle-wrapper {
-            margin: 1rem 0 0 0;
+            margin: 1.5rem 0 0 0;
             border: none;
             padding: 0;
+            width: 100%;
+            justify-content: center;
         }
     }
 </style>
 
 <script>
-    // Script simple para abrir/cerrar menú
     const menuBtn = document.getElementById('menu-toggle');
     const navLinks = document.getElementById('nav-menu');
 
     if (menuBtn && navLinks) {
         menuBtn.addEventListener('click', () => {
+            const isExpanded = navLinks.classList.contains('expanded');
             navLinks.classList.toggle('expanded');
+            menuBtn.setAttribute('aria-expanded', (!isExpanded).toString());
         });
 
-        // Cerrar al hacer click en un enlace
         navLinks.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('expanded');
+                menuBtn.setAttribute('aria-expanded', 'false');
             });
         });
     }
