@@ -109,24 +109,26 @@ import Layout from '../layouts/BlogPost.astro';
         margin: 0 auto;
     }
 
-    /* GRID */
+    /* GRID - CORREGIDO PARA MÓVIL */
     .portfolio-grid {
         display: grid;
+        /* CAMBIO CLAVE: 280px en lugar de 320px */
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 2.5rem;
         padding-bottom: 4rem;
+        justify-content: center; /* Centra las tarjetas si sobra espacio */
     }
 
     /* TARJETAS */
     .card {
-        background-color: var(--surface); /* Dinámico: blanco o negro */
+        background-color: var(--surface);
         border: 1px solid var(--border);
         border-radius: 16px;
         overflow: hidden;
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         display: flex;
         flex-direction: column;
-        height: 100%; /* Para que todas tengan la misma altura */
+        height: 100%;
     }
 
     .card:hover {
@@ -151,7 +153,7 @@ import Layout from '../layouts/BlogPost.astro';
     }
 
     .card:hover .card-image img {
-        transform: scale(1.05); /* Efecto zoom suave */
+        transform: scale(1.05);
     }
 
     /* CONTENIDO */
@@ -200,7 +202,7 @@ import Layout from '../layouts/BlogPost.astro';
         color: var(--text-muted);
         margin-bottom: 1.5rem;
         line-height: 1.6;
-        flex-grow: 1; /* Empuja los elementos de abajo */
+        flex-grow: 1;
     }
 
     /* TECNOLOGÍAS (Pills) */
@@ -236,7 +238,7 @@ import Layout from '../layouts/BlogPost.astro';
         font-size: 0.9rem;
         text-align: center;
         transition: all 0.2s;
-        flex: 1; /* Botones del mismo ancho */
+        flex: 1;
     }
 
     .link-btn.primary {
@@ -264,6 +266,7 @@ import Layout from '../layouts/BlogPost.astro';
     }
 
     /* AJUSTES GLOBALES PARA ANCHO COMPLETO */
+    /* Aquí añadimos overflow-x hidden al main para evitar scroll horizontal indeseado */
     :global(main), :global(.prose) {
         width: 100% !important;
         max-width: 1200px !important;
@@ -272,6 +275,7 @@ import Layout from '../layouts/BlogPost.astro';
         padding-left: 1.5rem !important;
         padding-right: 1.5rem !important;
         box-sizing: border-box !important;
+        overflow-x: hidden; /* Seguridad extra */
     }
 
     /* LIMPIEZA VISUAL */
